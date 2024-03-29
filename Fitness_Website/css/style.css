@@ -1,0 +1,622 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color:#fff; 
+}
+
+header {
+    background-color: #333;
+    padding: 5px 5px;
+    color: rgb(244, 244, 244);
+}
+
+h1 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+    text-align: left;
+    line-height: 1.5rem;
+    margin-bottom: 6px;
+    margin-top: 8px;
+    font-stretch: expanded;
+}
+
+.tagline {
+    text-align: left;
+    font-size: 1rem;
+    margin-top: 3px;
+    font-style: italic;
+    margin-right: 10px;
+}
+
+footer {
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.hero {
+    background-image: url("../pictures/main.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white; 
+}
+
+.hero > h1 {
+    margin: 0;
+    font-size: 4em;
+    line-height: 1.2;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.hero > p {
+    font-size: 2.5em;
+    line-height: 1.5;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.featured-classes {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+    color: #333;
+}
+
+.featured-classes .class-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.featured-classes .class-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    margin: 20px;
+    min-width: 200px; /* Adjust this value based on your design */
+    flex: 1; /* Allow items to grow and fill the space */
+}
+
+.featured-classes .class-item img {
+    width: 100%;
+    max-width: 100%; /* Keep your images responsive */
+    height: auto;
+    border-radius: 50%; /* This will ensure images are always circular */
+}
+
+/* Align the text */
+.featured-classes h3, .featured-classes p {
+    align-self: start; /* Aligns text to the start of the flex container */
+    width: 100%; /* Ensures text alignment is consistent */
+}
+
+@media (max-width: 768px) {
+    .featured-classes .class-list {
+        flex-direction: column;
+    }
+    .featured-classes .class-item {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+
+.testimonials {
+    background-color: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+    color:black;
+}
+
+.testimonials > h2 {
+    text-align:center;
+    color:black;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.background {
+    background-image: url("../pictures/yoga.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white; 
+}
+
+.login-container {
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.form-group error{
+	color: red;
+    font-size: 12px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-login {
+    padding: 10px;
+    color: #fff;
+    background: #ff0000;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background: #ff0000;
+}
+
+.link-forgot-password, .link-signup {
+    color: #ff0000;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+}
+
+.signup-section {
+    margin-top: 20px;
+    text-align: center;
+}
+.signup-section > p{
+    color: #ff0000;
+    font-weight: bold;
+   
+}
+.background2 {
+    background-image: url('../pictures/battle-ropes.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+    color: white;
+}
+
+.login-container2 {
+    width: 80%;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #fff;
+    border-radius: 4px;
+}
+.login-container2 > h1 {
+    color: #333;
+    text-align: center;
+
+}
+
+.textfield {
+    margin-bottom: 15px;
+}
+
+.textfield label {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.textfield input,
+.textfield select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.submit-btn, .reset-btn {
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #e60000;
+}
+
+.reset-btn {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.reset-btn:hover {
+    background-color: #e0e0e0;
+}
+.warning{
+	color: red;
+}
+.input-error {
+    border: 1px solid red;
+}
+
+.form-wrapper1 {
+    width: 80%;
+    padding: 20px;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    background: #fff;
+    border-radius: 4px;
+}
+.form-wrapper1 h2 {
+    color:#333;
+    text-align: center;
+}
+.form-wrapper1 #submit-c {
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-wrapper1 .form-field {
+    color:#333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    
+.form-wrapper1 .form-field > [type="text"],.form-field > input[type="email"],
+.form-wrapper1 .form-field > textarea,.form-field > select {
+    width: 95%;
+    padding: 15px;
+    margin-top: 8px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+ }
+
+.form-wrapper1 .success {
+    color: green;
+    font-weight: bold;
+}
+
+.warning{
+	color: red;
+}
+.input-error {
+    border: 1px solid red;
+}
+
+.login-container3 {
+    width: 80%;
+    padding: 20px;
+    margin: auto; /* This will center your container */
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a shadow for some depth */
+}
+
+.login-container3 .form-group {
+    margin-bottom: 15px; /* Spacing between each form group */
+}
+
+.login-container3 .form-group label {
+    display: block;
+    margin-bottom: 5px; /* Spacing between label and input/select */
+}
+
+.login-container3 .form-group input[type="text"],
+.login-container3 .form-group input[type="password"],
+.login-container3 .form-group select {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the inputs/select */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded borders */
+}
+
+.login-container3 .btn-reserve {
+    background-color: #d9534f; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none;
+    border-radius: 4px; /* Rounded borders */
+    cursor: pointer;
+    display: block;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Margin at the top of the button */
+}
+
+.login-container3 .btn-reserve:hover {
+    background-color: #c9302c; /* Button hover state color */
+}
+
+.login-container3 .link-forgot-password,
+.login-container3 .link-signup {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #d9534f; /* Adjust the color as needed */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.login-container3 .link-forgot-password:hover,
+.login-container3 .link-signup:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+.login-container3.error {
+    color: red;
+    font-size: 16px;
+}
+
+.login-container3.success {
+    color: green;
+    font-size: 16px;
+}
+/* Media query for devices with a width of up to 600px */
+@media screen and (max-width: 600px) {
+    .navbar li {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+
+    .hero > h1 {
+        font-size: 2.5em;
+    }
+
+    .hero > p {
+        font-size: 1.5em;
+    }
+
+    .featured-classes .class-list {
+        flex-direction: column;
+    }
+
+    .login-container, .login-container2 {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .form-group input {
+        width: calc(100% - 16px);
+    }
+
+    .background, .background2,.form-wrapper1 {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+
+.structure.filter {
+    font-size: 1.2rem;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.reservation-table th,
+.reservation-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.reservation-table th {
+    background-color: #5f5858;
+    color: black;
+}
+
+.reservation-table tr:nth-child(even) {
+    background-color: rgb(43, 36, 36)
+
+}
+.reservation-table tr:nth-child(odd) {
+    background-color: #373434; 
+}
+
+.reservation-table tr:hover {
+    background-color: #2e2c2c;
+}
+
+.delete-btn {
+    background-color: #df2121;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #ff3333;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.sport-card {
+    background-color: white;
+    color: black;
+    padding: 1.3rem;
+    margin: 1.2rem;
+    width: 300px;
+    border-radius: 15px;
+}
+
+.sport-card img {
+    width: 100%;
+    /* Adjust based on your needs */
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+    .team-stats {
+        flex-direction: column;
+    }
+
+    .filter-container {
+        flex-direction: column;
+    }
+
+    .filter-container>div {
+        justify-content: center;
+        /* 在较小屏幕上居中显示 */
+    }
+
+    #searchInput {
+        margin-right: 0;
+        /* 在较小屏幕上移除间距 */
+    }
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    /* 使子元素分布在两端 */
+    flex-wrap: wrap;
+    /* 允许子元素在必要时换行 */
+    gap: 20px;
+    /* 添加一些间隙 */
+    margin-bottom: 20px;
+    /* 添加一些底部外边距 */
+}
+
+.filter-container>div {
+    flex: 1;
+    /* 使每个子容器灵活地填充空间 */
+    display: flex;
+    align-items: center;
+    /* 垂直居中对齐子元素 */
+}
+
+.search-input-container {
+    justify-content: flex-end;
+    /* 将搜索框和按钮推向右侧 */
+}
+
+#searchInput {
+    padding: 0.5rem;
+    /* 增加填充使输入框更高 */
+    margin-right: 10px;
+    /* 在输入框和按钮之间添加一些间距 */
+    width: 200px;
+    /* 允许输入框根据内容自动调整宽度 */
+
+}
