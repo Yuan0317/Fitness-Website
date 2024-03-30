@@ -1,3 +1,10 @@
+<!--
+* Group 15: Yuan Tang,Lishu Yuan
+* Date: 2023-03-27
+* Section: CST 8285 section 302
+* Description: the reservation page, user can choose courses name and time.
+-->
+
 <?php
 session_start();
 include('database.php');
@@ -19,27 +26,14 @@ function make_reservation($class, $time)
 $reservation_made = false;
 $error = '';
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $class = $_POST['class'] ?? '';
-//     $time = $_POST['time'] ?? '';
 
-//     if (!empty($class) && !empty($time)) {
-//         $reservation_made = make_reservation($class, $time);
-
-//         if (!$reservation_made) {
-//             $error = 'Reservation failed. Please try again later.';
-//         }
-//     } else {
-//         $error = 'Please select both a class and a time.';
-//     }
-// }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["reserve"])) {
     $class = $_POST['class'];
     $time = $_POST['time'];
     $email = $_SESSION['email'];
 
     if (!empty($class) && !empty($time) && !empty($email)) {
-        // 首先检查用户是否已经预约了这个课程
+
         $stmt = $con1->prepare("SELECT * FROM classes WHERE class_name = ? AND user_email = ?");
         $stmt->bind_param("ss", $class, $email);
         $stmt->execute();
@@ -47,25 +41,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["reserve"])) {
         $stmt->close();
 
         if ($result->num_rows > 0) {
-            // 用户已经预约了这个课程
+
             $error = 'You have already reserved this class.';
         } else {
-            // 用户尚未预约这个课程，进行预约
+
             $stmt = $con1->prepare("INSERT INTO classes (class_name, class_time, user_email) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $class, $time, $email);
             if ($stmt->execute()) {
-                // 插入成功，重定向到 myfile.php
+
                 $_SESSION['reservation_made'] = true;
                 header('Location: myfile.php');
                 exit();
             } else {
-                // 插入失败
+
                 $error = 'Reservation failed. Please try again later.';
             }
             $stmt->close();
         }
     } else {
-        // 未选择课程或时间，或用户未登录
+
         $error = 'Please select both a class and a time.';
         echo "<p class='error'>" . $error . "</p>";
     }

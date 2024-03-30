@@ -3,10 +3,7 @@
  * Group 15: Yuan Tang,Lishu Yuan
  * Date: 2023-03-27
  * Section: CST 8285 section 302
- * Description: To validate the email field for Assignment 2
- * This file contains javascript code used to validate email address.
- * It contains a function called validateEmail() to check if the entered email has 
- * corrent format.
+ * Description: To dynamicaly search course 
 */
 
 
@@ -41,17 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-    // activitiesDropdownList.addEventListener('change', (e) => {
-    //     const selectedCategory = e.target.value;
-    //     const filteredActivities = activities.filter(activity => 
-    //         selectedCategory === 'all' ? true : activity.category === selectedCategory
-    //     );
-    //     displayActivities(filteredActivities);
-    // });
 
-    // // Initially display all activities
-    // displayActivities(activities);
-;
 
 
 

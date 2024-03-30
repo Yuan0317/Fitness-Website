@@ -1,50 +1,57 @@
+<!--
+* Group 15: Yuan Tang,Lishu Yuan
+* Date: 2023-03-27
+* Section: CST 8285 section 302
+* Description: the user login page
+-->
+
 <?php
 session_start();
 include("database.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // 清除之前的错误消息
-    unset($_SESSION['login_error']);
-$email = !empty($_POST["email"]) ? trim($_POST['email']) : "no data";
-$password = !empty($_POST["pass"]) ? trim($_POST['pass']) : "no data";
 
-$sql = "SELECT email,password FROM users 
+    unset($_SESSION['login_error']);
+    $email = !empty($_POST["email"]) ? trim($_POST['email']) : "no data";
+    $password = !empty($_POST["pass"]) ? trim($_POST['pass']) : "no data";
+
+    $sql = "SELECT email,password FROM users 
        WHERE email='{$email}'";
-$query = mysqli_query($con1, $sql);
-if (!$query) {
-    echo "read failure";
-    return;
-}
-$row = mysqli_fetch_assoc($query);
-if ($row['email'] == $email && $row['password'] == $password) {
-    $_SESSION['email'] = $email; //save the email in the session
-    header("Location: reservation.php");
-    exit();
-} else {
-    echo "not success";
-}
-if ($email && $password) {
-    $stmt = $con1->prepare("SELECT email, password FROM users WHERE email = ?");
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if ($row['password'] === $password) {
-            $_SESSION['email'] = $email; // Save the email in the session
-            header("Location: reservation.php");
-            exit();
-        } else {
-            $_SESSION['login_error'] = 'Incorrect password. Please try again.';
-        }
-    } else {
-        $_SESSION['login_error'] = 'Email address does not exist.';
+    $query = mysqli_query($con1, $sql);
+    if (!$query) {
+        echo "read failure";
+        return;
     }
-    if (isset($_SESSION['login_error'])) {
-        header("Location: login.php");
+    $row = mysqli_fetch_assoc($query);
+    if ($row['email'] == $email && $row['password'] == $password) {
+        $_SESSION['email'] = $email; //save the email in the session
+        header("Location: reservation.php");
         exit();
+    } else {
+        echo "not success";
     }
-}
+    if ($email && $password) {
+        $stmt = $con1->prepare("SELECT email, password FROM users WHERE email = ?");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if ($row['password'] === $password) {
+                $_SESSION['email'] = $email; // Save the email in the session
+                header("Location: reservation.php");
+                exit();
+            } else {
+                $_SESSION['login_error'] = 'Incorrect password. Please try again.';
+            }
+        } else {
+            $_SESSION['login_error'] = 'Email address does not exist.';
+        }
+        if (isset($_SESSION['login_error'])) {
+            header("Location: login.php");
+            exit();
+        }
+    }
 }
 ?>
 
@@ -60,17 +67,17 @@ if ($email && $password) {
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/login.js" defer></script>
     <script>
-    const loginError = <?php echo json_encode($_SESSION['login_error'] ?? ''); ?>;
-    if (loginError) {
-        alert(loginError);
-        // Clear the error message from session to prevent it from popping up again on refresh
-        <?php unset($_SESSION['login_error']); ?>
-    }
+        const loginError = <?php echo json_encode($_SESSION['login_error'] ?? ''); ?>;
+        if (loginError) {
+            alert(loginError);
+            // Clear the error message from session to prevent it from popping up again on refresh
+            <?php unset($_SESSION['login_error']); ?>
+        }
     </script>
 </head>
 
 <body>
-<header class="site-header">
+    <header class="site-header">
         <h1>OTTAWA FITNESS</h1>
         <div class="tagline">Exercise brings health.</div>
         <nav class="navbar">
@@ -87,12 +94,14 @@ if ($email && $password) {
 
     <div class="background">
         <div class="login-container">
-        <div id="login_error" class="error">
-        <?php if (isset($_SESSION['login_error']) && $_SERVER['REQUEST_METHOD'] == 'POST'): ?>
-            <script>alert('<?php echo addslashes($_SESSION['login_error']); ?>');</script>
-            <?php unset($_SESSION['login_error']); // 清除错误消息 ?>
-        <?php endif; ?>
-        </div>
+            <div id="login_error" class="error">
+                <?php if (isset($_SESSION['login_error']) && $_SERVER['REQUEST_METHOD'] == 'POST') : ?>
+                    <script>
+                        alert('<?php echo addslashes($_SESSION['login_error']); ?>');
+                    </script>
+                    <?php unset($_SESSION['login_error']);  ?>
+                <?php endif; ?>
+            </div>
             <form id="login_form" method="post" action="login.php">
                 <div class="form-group">
                     <label for="email">Email Address:</label>

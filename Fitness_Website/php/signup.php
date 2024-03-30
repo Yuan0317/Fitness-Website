@@ -1,33 +1,40 @@
+<!--
+* Group 15: Yuan Tang,Lishu Yuan
+* Date: 2023-03-27
+* Section: CST 8285 section 302
+* Description: the signup page,user input their information,and the information will be 
+               saved in the database in the backend.
+-->
 <?php
 session_start();
 include("database.php");
 
-$error_message = ''; // 初始化错误消息变量
+$error_message = '';
 
-// 当表单被提交时处理
+
 if (isset($_POST["submit"])) {
     $name = $_POST["login"];
     $email = $_POST["email"];
-    $password = $_POST["pass"]; // 注意：实际生产中密码应该被哈希存储
+    $password = $_POST["pass"];
     $phone = $_POST["phone"];
     $gender = $_POST["gender"];
 
-    // 首先检查邮箱是否已经注册
+
     $stmt = $con1->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // 邮箱已存在，设置错误消息
+
         $error_message = 'Email address already exists.';
     } else {
-        // 邮箱未注册，插入新用户数据
+
         $stmt = $con1->prepare("INSERT INTO users (email, name, password, phone, gender) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param('sssss', $email, $name, $password, $phone, $gender);
         $stmt->execute();
 
-        // 重定向到登录页面
+
         header('Location: login.php');
         exit();
     }

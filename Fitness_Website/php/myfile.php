@@ -1,3 +1,11 @@
+<!--
+* Group 15: Yuan Tang,Lishu Yuan
+* Date: 2023-03-27
+* Section: CST 8285 section 302
+* Description: after the user login, user can see the reservation histroy,and delete
+               update,add course.
+-->
+
 <?php
 session_start();
 include("database.php");

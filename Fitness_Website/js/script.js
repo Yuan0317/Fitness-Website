@@ -1,3 +1,10 @@
+ /*
+ * Group 15: Yuan Tang,Lishu Yuan
+ * Date: 2023-03-30
+ * Section: CST 8285 section 302
+ * Description: To dynamicaly validate user sign up.
+*/
+
 let emailInput = document.querySelector("#email");
 let loginInput = document.querySelector("#login");
 let passInput = document.querySelector("#pass");

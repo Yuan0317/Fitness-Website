@@ -1,3 +1,11 @@
+
+ /*
+ * Group 15: Yuan Tang,Lishu Yuan
+ * Date: 2023-03-27
+ * Section: CST 8285 section 302
+ * Description: To validate the login for Assignment 2
+ * This file contains javascript code used to validate email and passwrod.
+*/
 document.addEventListener('DOMContentLoaded', () => {
     let form = document.getElementById('login_form');
     let emailInput = document.getElementById('email');
